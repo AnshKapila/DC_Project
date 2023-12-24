@@ -13,7 +13,6 @@ gsap.to("#nav",{
     scrollTrigger:{
         trigger:"#nav",
         scroller:"body",
-        markers:true,
         start: "top -10%",
         end: "top -15%",
         scrub: 1,
@@ -24,10 +23,51 @@ gsap.to("#main",{
     scrollTrigger:{
         trigger:"#main",
         scroller:"body",
-        markers:true,
         start:"top -15%",
         end:"top -70%",
         scrub: 1
 
+    }
+})
+var h4all = document.querySelectorAll("#nav h4")
+h4all.forEach(function(elem){
+    elem.addEventListener("mouseenter",function(){
+        crsr.style.scale = 3
+        crsr.style.border = "1px solid #fff"
+        crsr.style.backgroundColor = "transparent" 
+    })
+    elem.addEventListener("mouseleave",function(){
+        crsr.style.scale = 1
+        crsr.style.border = "0px solid #b5b5ca"
+        crsr.style.backgroundColor = "#0000ff" 
+    })
+})
+
+gsap.from("#aboutus img, #aboutus-in",{
+    y:50,
+    opacity: 0,
+    duration: 0.7,
+    stagger: 0.4,
+    scrollTrigger: {
+        trigger:"#aboutus",
+        scroller: "body",
+        start: "top 60%",
+        end: "top 58%",
+        scrub: 3
+    }
+})
+
+gsap.from(".card",{
+    y:50,
+    opacity: 0,
+    duration: 0.7,
+    stagger: 0.4,
+    scrollTrigger: {
+        trigger:"#aboutus",
+        scroller: "body",
+        markers: false,
+        start: "top 70%",
+        end: "top 65%",
+        scrub: 3
     }
 })
